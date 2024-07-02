@@ -17,8 +17,5 @@ class BookLendedListener implements ShouldQueue
 
     public function handle(BookLoanCreated $event): void
     {
-        $transport = $this->repository->findForLocation($event->getLocationId(), $event->getDate());
-        $transport->orderTransport($this->transportService);
-        $this->repository->store($transport);
     }
 }

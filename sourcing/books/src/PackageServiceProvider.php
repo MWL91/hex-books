@@ -3,11 +3,8 @@
 namespace Mwl91\Books;
 
 use Illuminate\Support\ServiceProvider;
-use Mwl91\Books\Infrastructure\Console\PrepareLocationTransportCommand;
 use Mwl91\Books\Infrastructure\Repositories\BookLoanEloquentRepository;
 use Mwl91\Books\Infrastructure\Repositories\BookLoanRepository;
-use Mwl91\Books\Infrastructure\Services\Go\GoTransportService;
-use Mwl91\Books\Infrastructure\Services\TransportService;
 
 class PackageServiceProvider extends ServiceProvider
 {

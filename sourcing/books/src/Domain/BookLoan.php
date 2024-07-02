@@ -15,4 +15,13 @@ use Ramsey\Uuid\UuidInterface;
 
 class BookLoan extends AggregateRoot
 {
+    public function getKey(): string
+    {
+        // TODO: Implement getKey() method.
+    }
+
+    protected function apply(AggregateChanged $event): void
+    {
+        // TODO: Implement apply() method.
+    }
 }
