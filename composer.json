@@ -10,7 +10,8 @@
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "tightenco/ziggy": "^2.0"
+        "tightenco/ziggy": "^2.0",
+        "sourcing/books": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -65,6 +66,12 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./sourcing/books"
+        }
+    ]
 }

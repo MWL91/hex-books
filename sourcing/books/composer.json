@@ -1,0 +1,27 @@
+{
+    "name": "sourcing/books",
+    "description": "Books management system",
+    "type": "package",
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": ">=11.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "license": "copyright",
+    "autoload": {
+        "psr-4": {
+            "Mwl91\\Books\\": "src",
+            "Mwl91\\Books\\Tests\\": "tests",
+            "Database\\Factories\\Mwl91\\Books\\Models\\": "database/factories"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mwl91\\Books\\PackageServiceProvider"
+            ]
+        }
+    }
+}
