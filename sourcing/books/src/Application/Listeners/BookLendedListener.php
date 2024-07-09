@@ -10,12 +10,13 @@ use Mwl91\Books\Infrastructure\Services\TransportService;
 class BookLendedListener implements ShouldQueue
 {
     public function __construct(
-        private readonly BookLoanRepository $repository,
+        private readonly BookStockRepository $bookStockRepository,
     )
     {
     }
 
     public function handle(BookLoanCreated $event): void
     {
+        $this->bookStockRepository->reserve($event->getBookIds());
     }
 }
