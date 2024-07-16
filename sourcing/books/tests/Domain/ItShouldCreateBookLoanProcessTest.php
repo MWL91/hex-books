@@ -43,7 +43,7 @@ final class ItShouldCreateBookLoanProcessTest extends TestCase
 
         // Then:
         $this->assertInstanceOf(BookLoanCreated::class, $events[0]);
-        dd($events[0]->dump());
+        $this->assertEquals($processId, $process->getKey());
         Event::assertDispatched(BookLoanCreated::class);
     }
 }
