@@ -25,6 +25,8 @@ class InMemoryBookLoanRepository implements BookLoanRepository
             return null;
         }
 
+        dd($this->entities[$uuid->toString()] ?? []);
+
         return BookLoan::restoreFromEventsPayload($this->entities[$uuid->toString()] ?? []);
     }
 }
