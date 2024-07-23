@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Mwl91\Books\Application\Commands;
 
+use Mwl91\Books\Domain\BookLoan;
 use Mwl91\Books\Domain\ValueObjects\Reader;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -11,15 +12,21 @@ final class LendBookCommand
 {
     private readonly UuidInterface $id;
     private array $bookIds;
+    private \DateTimeInterface $returnDate;
 
     public function __construct(
         private Reader $reader,
         array $bookIds,
         ?UuidInterface $loanId = null,
+        ?\DateTimeInterface $returnDate = null
     )
     {
         if($loanId !== null) {
             $this->id = $loanId;
+        }
+
+        if($returnDate === null) {
+            $returnDate = new \DateTimeImmutable(BookLoan::DEFAULT_RETURN_TIME);
         }
 
         foreach($bookIds as $bookId) {
@@ -29,6 +36,7 @@ final class LendBookCommand
         }
 
         $this->bookIds = $bookIds;
+        $this->returnDate = $returnDate;
     }
 
     public function getKey(): UuidInterface
@@ -58,5 +66,10 @@ final class LendBookCommand
     public function getReaderId(): UuidInterface
     {
         return $this->reader->getKey();
+    }
+
+    public function getReturnDate(): \DateTimeInterface
+    {
+        return $this->returnDate;
     }
 }
